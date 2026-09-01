@@ -176,6 +176,12 @@ def build_page(page):
                 '<span class="cico">\U0001F4CB</span>'
                 '<span>حمّل <b>قائمة أكتوبر القابلة للطباعة</b> وشاركها في عملك أو مدرستك أو بيتك.</span>'
                 '<span class="cgo">&larr;</span></a>\n')
+        out += ('<div class="callout postercall"><span class="cico">\U0001F5BC\uFE0F</span>'
+                '<span>ملصقات أكتوبر للطباعة: '
+                '<a href="../posters/wa3i-poster-phishing.pdf">التصيّد</a> &middot; '
+                '<a href="../posters/wa3i-poster-passwords.pdf">كلمات المرور</a> &middot; '
+                '<a href="../posters/wa3i-poster-updates.pdf">التحديث والنسخ الاحتياطي</a>'
+                '، اطبعها وعلّقها في عملك أو مدرستك.</span></div>\n')
     if page.get("special") == "glossary":
         out += glossary_html(page)
     else:
