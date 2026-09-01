@@ -44,6 +44,10 @@ PAGES = [
      "title": "الذكاء الاصطناعي والأمن",
      "desc": "سبع نصائح لزمن الذكاء الاصطناعي: من الأصوات والفيديوهات المزيّفة ورسائل الاحتيال المتقنة، إلى ما يجب ألا تكتبه في روبوتات المحادثة.",
      "unit": "نصائح", "color": "#7c3aed"},
+    {"slug": "privacy", "file": "privacy.md", "emoji": "\U0001F510",
+     "title": "الخصوصية وحماية بياناتك",
+     "desc": "ثماني عادات تحفظ خصوصيتك، من ضبط الأذونات والحدّ من التتبّع إلى تقليل أثرك الرقمي واستعادة السيطرة على بياناتك ممن يجمعها.",
+     "unit": "عادات", "color": "#0284c7"},
     {"slug": "for-parents-teachers", "file": "for-parents-teachers.md", "emoji": "\U0001F46A",
      "title": "للمعلمين والأهل",
      "desc": "ثماني إرشادات لحماية الأطفال والطلاب على الإنترنت وتعليمهم كيف يحمون أنفسهم، من الحوار والتنمر الإلكتروني إلى الرقابة الأبوية والألعاب.",
@@ -58,7 +62,7 @@ PAGES = [
      "unit": "أساسيات", "color": "#4f46e5"},
     {"slug": "gulf-frameworks", "file": "gulf-frameworks.md", "emoji": "\U0001F4CB",
      "title": "الأطر التنظيمية في الخليج",
-     "desc": "نظرة مبسّطة على أبرز الأطر التنظيمية للأمن السيبراني في الخليج: CBK CORF و SAMA CSF و NCA ECC و CITRA والمعايير الدولية.",
+     "desc": "نظرة مبسّطة على أبرز الأطر التنظيمية للأمن السيبراني في الخليج ومعاييره الدولية، ما هو كل إطار، ولمن يوجّه، وعلامَ يركّز.",
      "unit": "أطر", "color": "#0f766e"},
     {"slug": "glossary", "file": "glossary.md", "emoji": "\U0001F4D6",
      "title": "مسرد المصطلحات",
@@ -103,15 +107,15 @@ def topbar(home, links):
     nav = "".join('<a href="' + href + '">' + esc(text) + "</a>" for text, href in links)
     return ('<div class="topbar"><div class="wrap">'
             '<a class="brand" href="' + home + '"><span class="logo">\U0001F6E1\uFE0F</span>'
-            '<span class="ar-name">' + SITE_AR + '</span><span class="lat">' + SITE_LAT + "</span></a>"
+            '<span class="ar-name">' + SITE_AR + "</span></a>"
             '<nav class="topnav">' + nav + "</nav></div></div>\n")
 
 
 def site_footer():
     js = open(os.path.join(HERE, "wa3i.js"), encoding="utf-8").read()
     return ('<footer class="sitefoot"><div class="wrap">'
-            '<span>مفتوح المصدر. <a href="https://github.com/' + REPO + '">شارك في تطويره على GitHub</a>.</span>'
-            '<span class="lat">By <a href="https://github.com/SiteQ8">Ali AlEnezi</a> &middot; <a href="https://3li.info">3li.info</a></span>'
+            '<span>هذا الدليل مفتوح المصدر، <a href="https://github.com/' + REPO + '">شارك في تطويره</a>.</span>'
+            '<span>بقلم <a href="https://github.com/SiteQ8">علي العنزي</a> &middot; <a href="https://3li.info">الموقع الشخصي</a></span>'
             "</div></footer>\n<script>" + js + "</script>\n")
 
 
@@ -135,14 +139,13 @@ def glossary_html(page):
     items = ""
     for ln in lines:
         parts = [p.strip() for p in ln.split("|")]
-        en, arb, dfn = (parts + ["", "", ""])[:3]
-        search = (en + " " + arb + " " + dfn).lower()
+        term, dfn = (parts + ["", ""])[:2]
+        search = (term + " " + dfn).lower()
         items += ('<div class="term" data-s="' + esc(search) + '">'
-                  '<div class="head"><span class="en-term">' + esc(en) + "</span>"
-                  '<span class="ar-term">' + esc(arb) + "</span></div>"
+                  '<div class="ar-term-big">' + esc(term) + "</div>"
                   '<div class="def">' + esc(dfn) + "</div></div>\n")
     n = len(lines)
-    out = '<div class="gsearch"><span class="gico">\U0001F50D</span><input id="q" type="text" placeholder="ابحث في المصطلحات بالعربية أو الإنجليزية..." autocomplete="off"></div>\n'
+    out = '<div class="gsearch"><span class="gico">\U0001F50D</span><input id="q" type="text" placeholder="ابحث في المصطلحات..." autocomplete="off"></div>\n'
     out += '<div class="gcount">عرض <b id="gc">' + ar(n) + '</b> من ' + ar(n) + ' مصطلحًا</div>\n'
     out += '<div class="terms" id="terms">\n' + items + "</div>\n"
     out += '<div class="gempty" id="gempty">لا توجد نتائج مطابقة، <b>جرّب كلمة أخرى.</b></div>\n'
@@ -162,7 +165,7 @@ def build_page(page):
     edit = "https://github.com/" + REPO + "/edit/main/content/" + page["file"]
     n = count_tips(page)
     out = head(page["title"] + " | " + SITE_AR, page["desc"], "../style.css")
-    out += topbar("../", [("كل الأدلة", "../"), ("GitHub", "https://github.com/" + REPO)])
+    out += topbar("../", [("كل الأدلة", "../"), ("المستودع", "https://github.com/" + REPO)])
     out += '<main class="wrap prose" style="--cat:' + page["color"] + '">\n'
     out += "<h1>" + esc(page["title"]) + "</h1>\n"
     out += ('<div class="byline">بقلم <a href="https://github.com/SiteQ8">' + esc(AUTHOR_AR) + "</a>"
@@ -191,7 +194,7 @@ def build_quiz(page):
         data.append({"m": m, "p": verdict == "phishing", "e": e})
     edit = "https://github.com/" + REPO + "/edit/main/content/" + page["file"]
     out = head(page["title"] + " | " + SITE_AR, page["desc"], "../style.css")
-    out += topbar("../", [("كل الأدلة", "../"), ("GitHub", "https://github.com/" + REPO)])
+    out += topbar("../", [("كل الأدلة", "../"), ("المستودع", "https://github.com/" + REPO)])
     out += '<main class="wrap prose quiz-page" style="--cat:' + page["color"] + '">\n'
     out += "<h1>اختبر نفسك: هل هذه رسالة تصيّد؟</h1>\n"
     out += ('<div class="byline">بقلم <a href="https://github.com/SiteQ8">' + esc(AUTHOR_AR) + "</a>"
@@ -226,14 +229,14 @@ def build_index():
     stats = [(n_guides, "أدلة تفاعلية"), (n_tips, "نصيحة عملية"), (n_terms, "مصطلحًا"), (n_quiz, "رسائل لتختبر نفسك")]
 
     out = head(SITE_AR + " | دليل الأمن السيبراني بالعربية", desc, "style.css")
-    out += topbar("./", [("GitHub", "https://github.com/" + REPO)])
+    out += topbar("./", [("المستودع", "https://github.com/" + REPO)])
     out += '<main class="wrap">\n<section class="hero">\n'
     out += '<span class="kicker">\U0001F6E1\uFE0F توعية بالأمن السيبراني</span>\n'
     out += '<h1 class="bigname">' + SITE_AR + "</h1>\n"
     out += '<p class="lede">' + esc(SITE_TAGLINE) + "</p>\n"
     out += "</section>\n"
     out += ('<div class="banner reveal">'
-            '<span class="tag">OCTOBER</span>'
+            '<span class="tag">أكتوبر</span>'
             '<h2>أكتوبر شهر التوعية بالأمن السيبراني</h2>'
             '<p>شهر يذكّرنا أن حماية أنفسنا على الإنترنت عادة يومية لا تحتاج إلى خبرة تقنية، فابدأ هذا الشهر بسبع خطوات بسيطة تحمي حساباتك وأجهزتك وبياناتك.</p>'
             '<div class="banner-cta">'
@@ -245,7 +248,7 @@ def build_index():
         out += ('<div class="stat"><div class="snum" data-count="' + str(c) + '">' + ar(c) + "</div>"
                 '<div class="slbl">' + lbl + "</div></div>")
     out += "</div>\n"
-    out += '<div class="sec-head"><div class="sec-eyebrow">Guides</div><h2 class="sec-title">الأدلة</h2></div>\n'
+    out += '<div class="sec-head"><h2 class="sec-title">تصفّح الأدلة</h2></div>\n'
     out += '<section class="cards">\n'
     for p in PAGES:
         cls = "card reveal"
@@ -271,9 +274,9 @@ def build_checklist():
     items = [ln.strip() for ln in open(os.path.join(HERE, "content", "october-checklist.md"), encoding="utf-8").read().splitlines() if ln.strip()]
     out = head("قائمة أكتوبر للأمن السيبراني | " + SITE_AR,
                "قائمة تحقق تفاعلية وقابلة للطباعة لشهر التوعية بالأمن السيبراني: ثماني خطوات بسيطة تحمي حساباتك وأجهزتك وبياناتك.", "../style.css")
-    out += topbar("../", [("كل الأدلة", "../"), ("GitHub", "https://github.com/" + REPO)])
+    out += topbar("../", [("كل الأدلة", "../"), ("المستودع", "https://github.com/" + REPO)])
     out += '<main class="wrap checklist" style="--cat:#ea580c">\n'
-    out += '<div class="cl-head"><span class="cl-badge">OCTOBER</span>'
+    out += '<div class="cl-head"><span class="cl-badge">أكتوبر</span>'
     out += "<h1>قائمة أكتوبر للأمن السيبراني</h1>"
     out += '<p class="cl-sub">ثماني خطوات بسيطة لشهر التوعية، أنجزها واحدة واحدة، أو اطبعها وعلّقها وشاركها في عملك أو مدرستك أو بيتك.</p>'
     out += '<button class="printbtn noprint" onclick="window.print()">\U0001F5A8 اطبع القائمة</button></div>\n'
@@ -284,7 +287,7 @@ def build_checklist():
         out += '<li><label><input type="checkbox"><span class="box"></span><span class="txt">' + esc(it) + "</span></label></li>\n"
     out += "</ul>\n"
     out += '<div class="cl-done" id="cl-done"><span class="cl-done-emoji">\U0001F389</span><b>أحسنت!</b> أكملت قائمة أكتوبر، فأنت الآن أصعب هدفًا بكثير. شارك القائمة مع من تحب.</div>\n'
-    out += '<div class="cl-foot">وعي &middot; Wa3i &nbsp; siteq8.github.io/Wa3i</div>\n'
+    out += '<div class="cl-foot">وعي &middot; دليل الأمن السيبراني بالعربية</div>\n'
     out += '<div class="pagefoot noprint"><div class="row"><a href="october-awareness.html">&larr; العودة إلى أساسيات أكتوبر</a></div></div>\n'
     out += "</main>\n" + site_footer().replace('<footer class="sitefoot">', '<footer class="sitefoot noprint">') + "</body></html>\n"
     with open(os.path.join(HERE, "content", "october-checklist.html"), "w", encoding="utf-8") as fh:
