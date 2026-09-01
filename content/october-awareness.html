@@ -197,8 +197,13 @@
       result.innerHTML = '<div class="q-emoji">' + (score === data.length ? "\uD83C\uDFC6" : (pct >= 60 ? "\uD83D\uDC4F" : "\uD83D\uDCA1")) + "</div>"
         + '<div class="q-score" dir="ltr">' + toAr(score) + " / " + toAr(data.length) + "</div>"
         + '<p class="q-final">' + msgTxt + "</p>"
-        + '<button class="q-retry">أعد المحاولة</button>';
+        + '<div class="q-actions"><button class="q-retry">أعد المحاولة</button><button class="q-share">شارك نتيجتك \uD83D\uDCE4</button></div>';
       if (score === data.length) confetti();
+      result.querySelector(".q-share").addEventListener("click", function () {
+        var txt = "حصلت على " + toAr(score) + " من " + toAr(data.length) + " في اختبار «هل هذه رسالة تصيّد؟» من وعي، اختبر نفسك: https://siteq8.github.io/Wa3i/content/quiz.html";
+        if (navigator.share) { navigator.share({ text: txt }).catch(function () {}); }
+        else { window.open("https://wa.me/?text=" + encodeURIComponent(txt), "_blank"); }
+      });
       result.querySelector(".q-retry").addEventListener("click", function () {
         i = 0; score = 0; result.style.display = "none"; card.style.display = "";
         if (progwrap) progwrap.style.display = ""; render();
