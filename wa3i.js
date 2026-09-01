@@ -1,49 +1,4 @@
-<!doctype html>
-<html lang="ar" dir="rtl"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>للمعلمين والأهل | وعي</title>
-<meta name="description" content="ثماني إرشادات لحماية الأطفال والطلاب على الإنترنت وتعليمهم كيف يحمون أنفسهم، من الحوار والتنمر الإلكتروني إلى الرقابة الأبوية والألعاب.">
-<meta property="og:title" content="للمعلمين والأهل | وعي">
-<meta property="og:description" content="ثماني إرشادات لحماية الأطفال والطلاب على الإنترنت وتعليمهم كيف يحمون أنفسهم، من الحوار والتنمر الإلكتروني إلى الرقابة الأبوية والألعاب.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ar_AR">
-<meta property="og:image" content="https://siteq8.github.io/Wa3i/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://siteq8.github.io/Wa3i/og.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
-<div class="progress" id="progress"></div>
-<button class="totop" id="totop" aria-label="أعلى الصفحة">↑</button>
-<div class="topbar"><div class="wrap"><a class="brand" href="../"><span class="logo">🛡️</span><span class="ar-name">وعي</span><span class="lat">Wa3i</span></a><nav class="topnav"><a href="../">كل الأدلة</a><a href="https://github.com/SiteQ8/Wa3i">GitHub</a></nav></div></div>
-<main class="wrap prose" style="--cat:#db2777">
-<h1>للمعلمين والأهل</h1>
-<div class="byline">بقلم <a href="https://github.com/SiteQ8">علي العنزي</a><span class="dot"></span>٨ إرشادات<span class="dot"></span><a href="../">أدلة أخرى</a></div>
-<p class="reveal">أطفال اليوم يكبرون داخل الشاشة، وحمايتهم لا تقع على المدرسة وحدها ولا على البيت وحده بل على الاثنين معًا، والخبر المطمئن أن الأمر لا يحتاج خبرة تقنية بل حضورًا وحوارًا وبعض العادات، وهذه إرشادات لحماية من هم في رعايتك وتعليمهم أن يحموا أنفسهم بأنفسهم.</p>
-<h2 class="reveal"><span class="n">١</span> اجعل الحديث عادة لا محاضرة</h2>
-<p class="reveal">لا يفيد أن تجلس طفلك مرة وتلقي عليه محاضرة عن مخاطر الإنترنت، بل تحدّث معه عنه كما تتحدث عن السلامة في الشارع قليلًا وباستمرار وبلا تخويف، واسأله عمّا يشاهده ويلعبه، والأهم أن تجعله يثق أنه إن حدث شيء مقلق يستطيع إخبارك دون أن يُعاقب.</p>
-<h2 class="reveal"><span class="n">٢</span> علّمهم أن ما يُنشر لا يُمحى</h2>
-<p class="reveal">الأطفال لا يدركون أن الصورة أو التعليق قد يبقى إلى الأبد ويصل إلى من لم يقصدوه، ولذلك اغرس فيهم قاعدة يفهمونها بألا ينشروا شيئًا لا يريدون أن يراه معلمهم أو جدّهم، فالقاعدة البسيطة تبقى معهم أكثر من التحذير المعقّد.</p>
-<h2 class="reveal"><span class="n">٣</span> انتبه لعلامات التنمر الإلكتروني</h2>
-<p class="reveal">التنمر الإلكتروني يحدث بصمت وقد يكون طفلك ضحيته دون أن ينطق، ولذلك راقب تغيّر مزاجه بعد استخدام الهاتف أو انسحابه المفاجئ من أصدقائه، وطمئنه أن الحل ليس بإخفاء المشكلة أو حذف الحساب بل بأن تقفا معًا فتوثّقا ما يحدث وتبلّغا المدرسة أو المنصة.</p>
-<h2 class="reveal"><span class="n">٤</span> استخدم الرقابة الأبوية بحكمة لا كتجسّس</h2>
-<p class="reveal">أدوات الرقابة الأبوية تساعد في ضبط المحتوى ووقت الاستخدام وهي مفيدة، غير أنها لا تصنع الثقة ولا تغني عن الحوار، ولذلك استخدمها كإطار أمان لا كعين تراقب وكن صريحًا مع أطفالك بشأنها، فالطفل الذي يشعر أنه مُراقب سرًّا يتعلّم الإخفاء لا الأمان.</p>
-<h2 class="reveal"><span class="n">٥</span> اجعل كلمة المرور القوية عادة مبكرة</h2>
-<p class="reveal">علّمهم أن كلمة المرور كمفتاح البيت لا يُعطى لأحد ولو كان أعزّ صديق، وابنِ العادة منذ الصغر بكلمة قوية لا تُشارك واربطها بشيء يفهمونه من حياتهم اليومية، فما يتعلّمونه صغارًا يرافقهم كبارًا.</p>
-<h2 class="reveal"><span class="n">٦</span> احذروا معًا الألعاب والغرباء</h2>
-<p class="reveal">كثير من المخاطر تدخل من باب الألعاب حيث يتحدث الأطفال مع غرباء لا يعرفونهم، ولذلك علّمهم ألا يشاركوا اسمهم الحقيقي أو مكانهم أو صورهم، وأن أي شخص يطلب السرّية أو يَعِد بهدايا أو أشياء داخل اللعبة مقابل شيء هو علامة خطر يجب أن يخبروك بها فورًا.</p>
-<h2 class="reveal"><span class="n">٧</span> كن أنت القدوة الرقمية</h2>
-<p class="reveal">الأطفال يقلّدون ما يرونه لا ما يُقال لهم، فإن كنت لا ترفع عينك عن هاتفك فلا تنتظر منهم غير ذلك، ولذلك انتبه لاستخدامك أمامهم واحترم خصوصيتهم كما تطلب منهم احترام خصوصية غيرهم، فالقدوة الصامتة أبلغ من ألف نصيحة.</p>
-<h2 class="reveal"><span class="n">٨</span> اعرف أين تطلب المساعدة</h2>
-<p class="reveal">حين تقع مشكلة جدية كالابتزاز أو التحرش فلا تتردّد ولا تلُم الطفل، بل احتفظ بأرقام الجهات المختصة في بلدك وتواصل مع إدارة المدرسة، وتذكّر دائمًا أن حماية طفلك أهم من إحراجه أو معاقبته، فالطفل الذي يخاف عقابك سيصمت في المرة القادمة.</p>
-<div class="pagefoot"><div class="row"><span class="grow">هذه إرشادات عامة للتوعية، وليست بديلًا عن استشارة مختص عند الحاجة، فخذ منها ما يناسبك.</span></div><div class="row" style="margin-top:12px"><a href="../">&larr; كل الأدلة</a><span class="fdot"></span><a href="https://github.com/SiteQ8/Wa3i/edit/main/content/for-parents-teachers.md">حسّن هذه الصفحة</a></div></div>
-</main>
-<footer class="sitefoot"><div class="wrap"><span>مفتوح المصدر. <a href="https://github.com/SiteQ8/Wa3i">شارك في تطويره على GitHub</a>.</span><span class="lat">By <a href="https://github.com/SiteQ8">Ali AlEnezi</a> &middot; <a href="https://3li.info">3li.info</a></span></div></footer>
-<script>(function () {
+(function () {
   var d = document, root = d.documentElement;
   root.classList.add("js");
   var AR = "\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669";
@@ -214,5 +169,3 @@
     render();
   }
 })();
-</script>
-</body></html>
