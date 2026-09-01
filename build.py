@@ -28,27 +28,31 @@ PAGES = [
     {"slug": "october-awareness", "file": "october-awareness.md", "emoji": "\U0001F4C5",
      "title": "شهر التوعية بالأمن السيبراني",
      "desc": "أكتوبر شهر التوعية بالأمن السيبراني. سبع عادات أساسية يبدأ بها كل شخص هذا الشهر ليحمي حساباته وأجهزته وبياناته.",
-     "unit": "توصية", "featured": True},
+     "unit": "توصيات", "featured": True},
     {"slug": "personal-security", "file": "personal-security.md", "emoji": "\U0001F512",
      "title": "الأمن الشخصي على الإنترنت",
      "desc": "ثماني نصائح عملية لحماية حساباتك وهاتفك وخصوصيتك، من كلمات المرور والمصادقة الثنائية إلى الروابط المشبوهة وشبكات الواي فاي العامة.",
-     "unit": "نصيحة"},
+     "unit": "نصائح"},
+    {"slug": "for-parents-teachers", "file": "for-parents-teachers.md", "emoji": "\U0001F46A",
+     "title": "للمعلمين والأهل",
+     "desc": "ثماني إرشادات لحماية الأطفال والطلاب على الإنترنت وتعليمهم كيف يحمون أنفسهم، من الحوار والتنمر الإلكتروني إلى الرقابة الأبوية والألعاب.",
+     "unit": "إرشادات"},
     {"slug": "concepts", "file": "concepts.md", "emoji": "\U0001F4A1",
      "title": "مفاهيم الأمن السيبراني",
      "desc": "شرح مبسّط لأهم عشرة مفاهيم في الأمن السيبراني، من جدار الحماية والتشفير إلى الثقة الصفرية والدفاع في العمق، مع المصطلح الإنجليزي لكل منها.",
-     "unit": "مفهوم"},
+     "unit": "مفاهيم"},
     {"slug": "small-business", "file": "small-business.md", "emoji": "\U0001F3E2",
      "title": "الأمن للمؤسسات الصغيرة",
      "desc": "سبع أساسيات تحمي أي عمل صغير دون ميزانية كبيرة: من الأساسيات المجانية والحد الأدنى من الصلاحيات إلى الاستعداد لبرامج الفدية وخطة الاستجابة للحوادث.",
-     "unit": "أساسية"},
+     "unit": "أساسيات"},
     {"slug": "gulf-frameworks", "file": "gulf-frameworks.md", "emoji": "\U0001F4CB",
      "title": "الأطر التنظيمية في الخليج",
      "desc": "نظرة مبسّطة على أبرز الأطر التنظيمية للأمن السيبراني في الخليج: CBK CORF و SAMA CSF و NCA ECC و CITRA والمعايير الدولية.",
-     "unit": "إطار"},
+     "unit": "أطر"},
     {"slug": "glossary", "file": "glossary.md", "emoji": "\U0001F4D6",
      "title": "مسرد المصطلحات",
      "desc": "قاموس ثنائي اللغة لأهم مصطلحات الأمن السيبراني، إنجليزي وعربي مع شرح مختصر، قابل للبحث كي لا تحتار في الترجمة.",
-     "unit": "مصطلح", "special": "glossary"},
+     "unit": "مصطلحًا", "special": "glossary"},
 ]
 
 
@@ -66,7 +70,9 @@ def head(title, desc, css):
         "<meta property=\"og:description\" content=\"" + esc(desc) + "\">\n"
         "<meta property=\"og:type\" content=\"website\">\n"
         "<meta property=\"og:locale\" content=\"ar_AR\">\n"
-        "<meta name=\"twitter:card\" content=\"summary\">\n"
+        "<meta property=\"og:image\" content=\"https://siteq8.github.io/Wa3i/og.png\">\n"
+        "<meta name=\"twitter:card\" content=\"summary_large_image\">\n"
+        "<meta name=\"twitter:image\" content=\"https://siteq8.github.io/Wa3i/og.png\">\n"
         "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n"
         "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
         "<link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n"
@@ -159,7 +165,12 @@ def build_page(page):
     out += "<h1>" + esc(page["title"]) + "</h1>\n"
     out += ('<div class="byline">بقلم <a href="https://github.com/SiteQ8">' + esc(AUTHOR_AR) + "</a>"
             '<span class="dot"></span>' + str(n).translate(ARABIC_DIGITS) + " " + page["unit"]
-            + (" " if page["unit"] == "مصطلح" else "") + '<span class="dot"></span><a href="../">أدلة أخرى</a></div>\n')
+            + '<span class="dot"></span><a href="../">أدلة أخرى</a></div>\n')
+    if page["slug"] == "october-awareness":
+        out += ('<a class="callout" href="october-checklist.html">'
+                '<span class="cico">&#128203;</span>'
+                '<span>حمّل <b>قائمة أكتوبر القابلة للطباعة</b> وشاركها في عملك أو مدرستك أو بيتك.</span>'
+                '<span class="cgo">&larr;</span></a>\n')
     if page.get("special") == "glossary":
         body, _ = glossary_html(page)
         out += body
@@ -190,11 +201,14 @@ def build_index():
     out += '<p class="lede">' + esc(SITE_TAGLINE) + '</p>\n'
     out += "</section>\n"
     # October awareness banner (the highlight)
-    out += ('<a class="banner" href="content/october-awareness.html" style="display:block">'
+    out += ('<div class="banner">'
             '<span class="tag">OCTOBER</span>'
             '<h2>أكتوبر شهر التوعية بالأمن السيبراني</h2>'
             '<p>شهر يذكّرنا أن حماية أنفسنا على الإنترنت عادة يومية لا تحتاج إلى خبرة تقنية. ابدأ هذا الشهر بسبع خطوات بسيطة تحمي حساباتك وأجهزتك وبياناتك.</p>'
-            '<span class="cta">ابدأ بأساسيات أكتوبر &larr;</span></a>\n')
+            '<div class="banner-cta">'
+            '<a class="cta" href="content/october-awareness.html">ابدأ بأساسيات أكتوبر &larr;</a>'
+            '<a class="cta ghost" href="content/october-checklist.html">&#128203; اطبع قائمة أكتوبر</a>'
+            '</div></div>\n')
     out += '<div class="sec-head"><div class="sec-eyebrow">Guides</div><h2 class="sec-title">الأدلة</h2></div>\n'
     out += '<section class="cards">\n'
     for p in PAGES:
@@ -205,7 +219,7 @@ def build_index():
                 "<h3>" + pill + esc(p["title"]) + "</h3>"
                 "<p>" + esc(p["desc"]) + "</p>"
                 '<span class="go">' + str(count_tips(p)).translate(ARABIC_DIGITS) + " " + p["unit"]
-                + ("ًا" if p["unit"] == "مصطلح" else "") + " &larr;</span>"
+                + " &larr;</span>"
                 "</a>\n")
     out += "</section>\n</main>\n"
     out += site_footer()
@@ -214,10 +228,35 @@ def build_index():
         fh.write(out)
 
 
+def build_checklist():
+    """A printable one page October checklist people can print or share."""
+    items = [ln.strip() for ln in open(os.path.join(HERE, "content", "october-checklist.md"), encoding="utf-8").read().splitlines() if ln.strip()]
+    out = head("قائمة أكتوبر للأمن السيبراني | " + SITE_AR,
+               "قائمة تحقق قابلة للطباعة لشهر التوعية بالأمن السيبراني: ثماني خطوات بسيطة تحمي حساباتك وأجهزتك وبياناتك.", "../style.css")
+    out += topbar("../", [("كل الأدلة", "../"), ("GitHub", "https://github.com/" + REPO)])
+    out += '<main class="wrap checklist">\n'
+    out += '<div class="cl-head"><span class="cl-badge">OCTOBER</span>'
+    out += '<h1>قائمة أكتوبر للأمن السيبراني</h1>'
+    out += '<p class="cl-sub">ثماني خطوات بسيطة لشهر التوعية بالأمن السيبراني. اطبعها، علّقها، وشاركها في عملك أو مدرستك أو بيتك.</p>'
+    out += '<button class="printbtn" onclick="window.print()">&#128424; اطبع القائمة</button></div>\n'
+    out += '<ul class="cl-list">\n'
+    for it in items:
+        out += '<li><label><input type="checkbox"><span class="box"></span><span class="txt">' + esc(it) + '</span></label></li>\n'
+    out += '</ul>\n'
+    out += '<div class="cl-foot">وعي &middot; Wa3i &nbsp; siteq8.github.io/Wa3i</div>\n'
+    out += '<div class="pagefoot noprint"><div class="row"><a href="october-awareness.html">&larr; العودة إلى أساسيات أكتوبر</a></div></div>\n'
+    out += "</main>\n"
+    out += site_footer().replace('<footer class="sitefoot">', '<footer class="sitefoot noprint">')
+    out += "</body></html>\n"
+    with open(os.path.join(HERE, "content", "october-checklist.html"), "w", encoding="utf-8") as fh:
+        fh.write(out)
+
+
 def build():
     for p in PAGES:
         build_page(p)
     build_index()
+    build_checklist()
     total = sum(count_tips(p) for p in PAGES)
     print("built index.html and", len(PAGES), "pages,", total, "items total")
 
