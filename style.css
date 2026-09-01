@@ -1,8 +1,8 @@
 :root{
-  --bg:#f6f9fb; --bg2:#eef3f7; --surface:#ffffff; --ink:#0f1b2d; --soft:#43536a;
-  --muted:#8494a8; --line:#e2e9f1; --line2:#d2dce7;
-  --teal:#0e7490; --teal-soft:#0891b2; --teal-wash:#e6f3f7; --teal-mid:#7cc3d6;
-  --amber:#ea580c; --amber-soft:#f97316; --amber-wash:#fff2e8;
+  --bg:#0a0e17; --bg2:#0f1522; --surface:#141c2b; --ink:#e9eef6; --soft:#a4b3ca;
+  --muted:#71819a; --line:#20293e; --line2:#2c3850;
+  --teal:#2dd4bf; --teal-soft:#5eead4; --teal-wash:rgba(45,212,191,.14); --teal-mid:rgba(45,212,191,.5);
+  --amber:#fb923c; --amber-soft:#fdba74; --amber-wash:rgba(251,146,60,.14);
   --ar:'IBM Plex Sans Arabic','Cairo','Segoe UI',Tahoma,sans-serif;
   --latin:'Inter','IBM Plex Sans Arabic',-apple-system,Segoe UI,sans-serif;
 }
@@ -258,3 +258,33 @@ footer.sitefoot{border-top:1px solid var(--line);background:var(--bg2);padding:3
 /* monolingual Arabic glossary term */
 .ar-term-big{font-weight:700;font-size:18px;color:var(--ink);line-height:1.6}
 .term .def{margin-top:6px}
+
+/* ============ dark theme component fixes ============ */
+.topbar{background:rgba(10,14,23,.85)}
+.hero .bigname{background:linear-gradient(115deg,#2dd4bf,#22d3ee,#fb923c,#22d3ee);background-size:300% 300%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.card .chip{background:color-mix(in srgb,var(--cat) 24%,var(--surface));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cat) 40%,transparent)}
+.card.feat{background:linear-gradient(135deg,color-mix(in srgb,var(--amber) 15%,var(--surface)),var(--surface) 62%)}
+.card.game{background:linear-gradient(135deg,color-mix(in srgb,#e11d48 15%,var(--surface)),var(--surface) 62%)}
+.banner{background:linear-gradient(135deg,color-mix(in srgb,var(--amber) 17%,var(--surface)),var(--surface) 60%);border:1px solid color-mix(in srgb,var(--amber) 35%,var(--line))}
+.banner h2{color:#fdba74}
+.banner p{color:#e6c2a2}
+.banner .cta{color:#0a0e17}
+.callout{background:color-mix(in srgb,var(--amber) 13%,var(--surface));border:1px solid color-mix(in srgb,var(--amber) 30%,var(--line));color:#e6c2a2}
+.callout:hover{background:color-mix(in srgb,var(--amber) 19%,var(--surface))}
+.callout b{color:#fdba74}
+.cl-done{background:linear-gradient(135deg,color-mix(in srgb,var(--amber) 17%,var(--surface)),var(--surface) 70%);border:1px solid color-mix(in srgb,var(--amber) 35%,var(--line));color:#e6c2a2}
+.cl-done b{color:#fdba74}
+.printbtn{color:#04141a}
+.totop{color:#04141a}
+.tagpill.amber{color:#0a0e17}
+.q-card.is-phish{border-color:color-mix(in srgb,#f43f5e 45%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,#f43f5e 13%,var(--surface)),var(--surface) 60%)}
+.q-card.is-safe{border-color:color-mix(in srgb,#22c55e 45%,var(--line));background:linear-gradient(180deg,color-mix(in srgb,#22c55e 13%,var(--surface)),var(--surface) 60%)}
+.q-msg{border-right-color:color-mix(in srgb,var(--cat) 60%,var(--muted))}
+.q-btn.phish{border-color:color-mix(in srgb,#f43f5e 40%,var(--line));color:#fb7185}
+.q-btn.phish:hover{background:color-mix(in srgb,#f43f5e 14%,var(--surface));border-color:#f43f5e}
+.q-btn.safe{border-color:color-mix(in srgb,#22c55e 40%,var(--line));color:#4ade80}
+.q-btn.safe:hover{background:color-mix(in srgb,#22c55e 14%,var(--surface));border-color:#22c55e}
+.q-fb.ok{background:color-mix(in srgb,#22c55e 13%,var(--surface));border:1px solid color-mix(in srgb,#22c55e 40%,var(--line));color:#86efac}
+.q-fb.no{background:color-mix(in srgb,#f43f5e 13%,var(--surface));border:1px solid color-mix(in srgb,#f43f5e 40%,var(--line));color:#fda4af}
+.q-next{background:var(--ink);color:var(--bg)}
+.q-next:hover{background:#fff}
