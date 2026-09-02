@@ -27,17 +27,6 @@ Practical, trustworthy cybersecurity guidance in Arabic for the Gulf, with **Oct
 
 **Read it: https://siteq8.github.io/Wa3i/**
 
-### How it is built
-
-Each collection is a markdown file in [`content/`](content/). A small generator, [`build.py`](build.py), renders every file to a clean right to left HTML page and builds the landing index, using one shared stylesheet. The glossary is rendered as a searchable list. The markdown is the source of truth.
-
-```
-pip install markdown
-python3 build.py
-```
-
-Zero framework. Right to left, Arabic first, with English technical terms kept inline.
-
 ### Contributing
 
 Fix a term, sharpen a guide, or add a collection: edit the markdown in `content/`, run `python3 build.py`, and open a pull request. Every page has a "حسّن هذه الصفحة" link to its source.
